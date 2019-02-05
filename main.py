@@ -14,6 +14,12 @@ class KBTest(unittest.TestCase):
         for item in data:
             if isinstance(item, Fact) or isinstance(item, Rule):
                 self.KB.kb_assert(item)
+                # for my own tests
+        file = 'statements_kb5.txt'
+        data = read.read_tokenize(file)
+        for item in data:
+            if isinstance(item, Fact) or isinstance(item, Rule):
+                self.KB.kb_assert(item)
         
     def test1(self):
         # Did the student code contain syntax errors, AttributeError, etc.
@@ -70,6 +76,8 @@ class KBTest(unittest.TestCase):
         print(' Asking if', ask1)
         answer = self.KB.kb_ask(ask1)
         self.assertEqual(str(answer[0]), "?X : bing")
+    
+
 
 
 def pprint_justification(answer):
